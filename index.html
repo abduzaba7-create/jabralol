@@ -73,6 +73,10 @@ h3{font-size:16px;font-weight:600}
 .app-card .go{display:inline-flex;align-items:center;gap:8px;font-weight:700;margin-top:6px}
 .happ .go{color:var(--accent-2)} .incy .go{color:#b3a9ff}
 
+.tag{display:inline-block;vertical-align:middle;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.02em;padding:5px 10px;border-radius:99px;margin-left:6px}
+.tag.free{background:rgba(46,229,157,.15);color:#5df2b4}
+.tag.paid{background:rgba(139,123,255,.18);color:#c3baff}
+
 /* view head */
 .view-head{padding-top:40px;padding-bottom:0}
 .back{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--muted)}
@@ -221,7 +225,7 @@ pre.json{margin:0;max-height:260px;overflow:auto;background:#03050a;border:1px s
 .feat small{display:block;color:var(--muted);font-size:13px}
 .feat b{font-weight:700;font-size:14.5px}
 .price{display:flex;align-items:baseline;gap:10px;margin:22px 0}
-.price b{font-family:var(--display);font-size:38px;color:var(--accent-2);font-variant-numeric:tabular-nums}
+.price b{font-family:var(--display);font-size:clamp(26px,8vw,38px);color:var(--accent-2);font-variant-numeric:tabular-nums}
 .price span{color:var(--muted);font-size:14px}
 .plan .btn{width:100%;padding:16px;font-size:15.5px}
 .side-list{display:flex;flex-direction:column;gap:14px}
@@ -259,14 +263,14 @@ footer button{background:none;border:0;padding:0;color:inherit}
       <div class="apps">
         <button class="app-card happ" type="button" data-app="happ">
           <span class="app-tile">H</span>
-          <b>Happ</b>
-          <p>Темы для iPhone. Ставятся за пару секунд из буфера обмена.</p>
+          <b>Happ <span class="tag free">Бесплатно</span></b>
+          <p>Темы и подписка бесплатно. Тема ставится за пару секунд из буфера обмена.</p>
           <span class="go">Открыть темы Happ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
         <button class="app-card incy" type="button" data-app="incy">
           <span class="app-tile">I</span>
-          <b>Incy</b>
-          <p>Тема и подключение JABRA VPN в Incy на iPhone, Android и ПК.</p>
+          <b>Incy <span class="tag paid">Подписка в боте</span></b>
+          <p>Тема JABRA и подключение в Incy по подписке. Купить её можно в боте.</p>
           <span class="go">Открыть темы Incy <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
       </div>
@@ -385,7 +389,7 @@ footer button{background:none;border:0;padding:0;color:inherit}
     <section class="wrap view-head">
       <button class="back" type="button" data-app="">← Выбор приложения</button>
       <h1 style="font-size:clamp(28px,4.6vw,48px)">Темы <em style="color:#b3a9ff">Incy</em></h1>
-      <p class="lead">Собери тему JABRA для Incy: фон, акцент, карточки и текст. Превью обновляется сразу.</p>
+      <p class="lead">Посмотри, как может выглядеть Incy с темой JABRA. Тема и подключение в Incy доступны по подписке из бота.</p>
     </section>
 
     <section class="wrap" style="padding-top:28px">
@@ -457,15 +461,17 @@ footer button{background:none;border:0;padding:0;color:inherit}
           <h3 style="margin-bottom:12px">Как подключить</h3>
           <ol class="steps">
             <li><b>1</b><span>Установи Incy из App Store, Google Play или с сайта приложения.</span></li>
-            <li><b>2</b><span>Получи Premium в боте <a href="https://t.me/jabravpnbot" target="_blank" rel="noopener" style="color:#b3a9ff">@jabravpnbot</a> и скопируй ссылку на подписку.</span></li>
+            <li><b>2</b><span>Купи подписку в боте <a href="https://t.me/jabravpnbot" target="_blank" rel="noopener" style="color:#b3a9ff">@jabravpnbot</a> и скопируй ссылку на подписку.</span></li>
             <li><b>3</b><span>Открой Incy, нажми «+» и вставь ссылку. Подписка и тема JABRA добавятся автоматически.</span></li>
           </ol>
-          <a class="btn btn-accent" href="https://t.me/jabravpnbot" target="_blank" rel="noopener" style="margin-top:14px">Получить подписку в боте</a>
+          <a class="btn btn-accent" href="https://t.me/jabravpnbot" target="_blank" rel="noopener" style="margin-top:14px">Купить подписку в боте</a>
         </div>
         <div class="code-box">
-          <h3>Код темы для Incy</h3>
-          <p style="margin:0;color:var(--muted);font-size:14px">Это код для панели провайдера Incy Premium, раздел «Кастомная тема». Его вставляет владелец сервиса, и тема появляется у всех клиентов JABRA.</p>
-          <div class="btns">
+          <span class="tag paid" style="align-self:flex-start;margin-left:0">Подписка в боте</span>
+          <h3>Тема JABRA для Incy</h3>
+          <p style="margin:0;color:var(--muted);font-size:14px">В Incy тема JABRA и подключение работают по подписке. Купи её в боте @jabravpnbot, и тема появится в Incy сама вместе с подпиской.</p>
+          <a class="btn btn-accent" href="https://t.me/jabravpnbot" target="_blank" rel="noopener" style="align-self:flex-start">Купить подписку в боте</a>
+          <div class="btns" hidden>
             <button class="btn btn-accent" id="iCopy" type="button">Скопировать код</button>
             <button class="btn btn-ghost" id="iJsonBtn" type="button">Посмотреть JSON</button>
           </div>
@@ -479,7 +485,7 @@ footer button{background:none;border:0;padding:0;color:inherit}
   <section id="tariffs" class="wrap">
     <span class="eyebrow">Тарифы</span>
     <h2>Один тариф. Всё включено</h2>
-    <p class="lead">Без лимитов по трафику и с обходом белых списков. Работает в Happ и Incy.</p>
+    <p class="lead">Без лимитов по трафику и с обходом белых списков. В Happ бесплатно, в Incy по подписке из бота.</p>
     <div class="tariff-grid">
       <div class="plan">
         <div class="plan-top">
@@ -493,14 +499,14 @@ footer button{background:none;border:0;padding:0;color:inherit}
           <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 4v16M7 20l-3-3M7 20l3-3M17 20V4M17 4l-3 3M17 4l3 3"/></svg></i><span><small>Трафик</small><b>Без ограничений</b></span></div>
           <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><small>Доступ</small><b>Обход белых списков</b></span></div>
         </div>
-        <div class="price"><b>Бесплатно</b></div>
-        <a class="btn btn-accent" href="https://t.me/jabravpnbot" target="_blank" rel="noopener">Получить Premium <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="price"><b id="planPrice">Бесплатно</b><span id="planPer">для Happ</span></div>
+        <a class="btn btn-accent" href="https://t.me/jabravpnbot" target="_blank" rel="noopener"><span id="planBtnT">Получить Premium</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="side-list">
         <div><i></i><p><b>Подписка в Telegram</b>Нажми «Получить», откроется бот @jabravpnbot. Там выдадут подписку.</p></div>
         <div><i></i><p><b>Работает при ограничениях</b>Обход белых списков: мессенджеры, видео и звонки доступны, когда обычная сеть урезана.</p></div>
         <div><i></i><p><b>Без счётчика гигабайт</b>Трафик не ограничен, смотри и скачивай сколько нужно.</p></div>
-        <div><i></i><p><b>Happ и Incy</b>Одна подписка подходит для обоих приложений.</p></div>
+        <div><i></i><p><b>Happ бесплатно, Incy по подписке</b>Для Happ подписка выдаётся бесплатно. Для Incy её нужно купить в боте.</p></div>
       </div>
     </div>
   </section>
@@ -702,6 +708,7 @@ function show(app,scroll){
   $("vChoose").hidden=!!app;$("vHapp").hidden=app!=="happ";$("vIncy").hidden=app!=="incy";
   document.querySelectorAll("#appSwitch button").forEach(b=>b.classList.toggle("on",b.dataset.app===app));
   document.title=app==="happ"?"JABRA VPN Темы Happ":app==="incy"?"JABRA VPN Темы Incy":"JABRA VPN Темы";
+  const inc=app==="incy";$("planPrice").textContent=inc?"По подписке":"Бесплатно";$("planPer").textContent=inc?"для Incy, цена в боте":"для Happ";$("planBtnT").textContent=inc?"Купить подписку":"Получить Premium";
   try{history.replaceState(null,"",app?"#"+app:location.pathname);}catch(e){}
   if(scroll!==false)window.scrollTo({top:0,behavior:"auto"});
 }
